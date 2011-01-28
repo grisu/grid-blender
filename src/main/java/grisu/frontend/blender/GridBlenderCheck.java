@@ -1,13 +1,14 @@
-package org.vpac.grisu.clients.blender;
+package grisu.frontend.blender;
+
+import grisu.control.ServiceInterface;
+import grisu.frontend.model.events.BatchJobEvent;
+import grisu.frontend.model.job.BatchJobObject;
 
 import java.io.File;
 
 import org.apache.commons.lang.StringUtils;
 import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.EventTopicSubscriber;
-import org.vpac.grisu.control.ServiceInterface;
-import org.vpac.grisu.frontend.model.events.BatchJobEvent;
-import org.vpac.grisu.frontend.model.job.BatchJobObject;
 
 import uk.co.flamingpenguin.jewel.cli.ArgumentValidationException;
 import uk.co.flamingpenguin.jewel.cli.Cli;

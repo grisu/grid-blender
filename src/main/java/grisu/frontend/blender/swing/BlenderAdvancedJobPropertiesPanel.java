@@ -1,4 +1,4 @@
-package org.vpac.grisu.clients.blender.swing;
+package grisu.frontend.blender.swing;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

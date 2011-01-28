@@ -1,4 +1,4 @@
-package org.vpac.grisu.clients.blender;
+package grisu.frontend.blender;
 
 public class BlenderHelpers {
 

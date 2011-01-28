@@ -1,4 +1,4 @@
-package org.vpac.grisu.clients.blender;
+package grisu.frontend.blender;
 
 import uk.co.flamingpenguin.jewel.cli.Option;
 

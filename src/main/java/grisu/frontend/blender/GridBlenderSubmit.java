@@ -1,14 +1,15 @@
-package org.vpac.grisu.clients.blender;
+package grisu.frontend.blender;
+
+import grisu.control.ServiceInterface;
+import grisu.control.exceptions.BatchJobException;
+import grisu.control.exceptions.JobSubmissionException;
+import grisu.control.exceptions.NoSuchJobException;
+import grisu.frontend.control.clientexceptions.JobCreationException;
+import grisu.model.dto.DtoActionStatus;
 
 import java.io.FileNotFoundException;
 import java.util.Date;
 
-import org.vpac.grisu.control.ServiceInterface;
-import org.vpac.grisu.control.exceptions.BatchJobException;
-import org.vpac.grisu.control.exceptions.JobSubmissionException;
-import org.vpac.grisu.control.exceptions.NoSuchJobException;
-import org.vpac.grisu.frontend.control.clientexceptions.JobCreationException;
-import org.vpac.grisu.model.dto.DtoActionStatus;
 
 import uk.co.flamingpenguin.jewel.cli.ArgumentValidationException;
 import uk.co.flamingpenguin.jewel.cli.Cli;
