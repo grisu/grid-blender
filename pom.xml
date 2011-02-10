@@ -3,7 +3,7 @@
 
 	<artifactId>blender-client</artifactId>
 	<groupId>grisu.frontend</groupId>
-	<version>0.3</version>
+	<version>0.4-SNAPSHOT</version>
 
 	<properties>
 		<grisu.dependency.version>0.3.1</grisu.dependency.version>
