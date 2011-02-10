@@ -1,9 +1,10 @@
-package org.vpac.grisu.clients.blender;
+package grisu.frontend.blender;
 
-import org.vpac.grisu.control.ServiceInterface;
-import org.vpac.grisu.control.exceptions.ServiceInterfaceException;
-import org.vpac.grisu.frontend.control.login.LoginParams;
-import org.vpac.grisu.frontend.control.login.ServiceInterfaceFactory;
+import grisu.control.ServiceInterface;
+import grisu.control.exceptions.ServiceInterfaceException;
+import grisu.frontend.control.login.LoginParams;
+import grisu.frontend.control.login.ServiceInterfaceFactory;
+
 
 public class Blender_check {
 

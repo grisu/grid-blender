@@ -1,4 +1,17 @@
-package org.vpac.grisu.clients.blender.swing;
+package grisu.frontend.blender.swing;
+
+import grisu.control.ServiceInterface;
+import grisu.control.exceptions.BatchJobException;
+import grisu.control.exceptions.JobSubmissionException;
+import grisu.frontend.blender.BlendFile;
+import grisu.frontend.blender.GrisuBlenderJob;
+import grisu.frontend.control.clientexceptions.JobCreationException;
+import grisu.frontend.model.events.BatchJobEvent;
+import grisu.frontend.view.swing.jobcreation.JobCreationPanel;
+import grisu.model.GrisuRegistryManager;
+import grisu.model.UserEnvironmentManager;
+import grisu.model.info.ApplicationInformation;
+import grisu.model.status.ActionStatusEvent;
 
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
@@ -19,18 +32,6 @@ import javax.swing.filechooser.FileFilter;
 import org.apache.commons.lang.StringUtils;
 import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.EventTopicSubscriber;
-import org.vpac.grisu.clients.blender.BlendFile;
-import org.vpac.grisu.clients.blender.GrisuBlenderJob;
-import org.vpac.grisu.control.ServiceInterface;
-import org.vpac.grisu.control.exceptions.BatchJobException;
-import org.vpac.grisu.control.exceptions.JobSubmissionException;
-import org.vpac.grisu.frontend.control.clientexceptions.JobCreationException;
-import org.vpac.grisu.frontend.model.events.BatchJobEvent;
-import org.vpac.grisu.frontend.view.swing.jobcreation.JobCreationPanel;
-import org.vpac.grisu.model.GrisuRegistryManager;
-import org.vpac.grisu.model.UserEnvironmentManager;
-import org.vpac.grisu.model.info.ApplicationInformation;
-import org.vpac.grisu.model.status.ActionStatusEvent;
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;

@@ -1,4 +1,8 @@
-package org.vpac.grisu.clients.blender.swing;
+package grisu.frontend.blender.swing;
+
+import grisu.frontend.blender.BlendFile;
+import grisu.frontend.blender.GrisuBlenderJob;
+import grisu.settings.ClientPropertiesManager;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,9 +29,6 @@ import javax.swing.event.ChangeListener;
 import javax.swing.filechooser.FileFilter;
 
 import org.apache.commons.lang.StringUtils;
-import org.vpac.grisu.clients.blender.BlendFile;
-import org.vpac.grisu.clients.blender.GrisuBlenderJob;
-import org.vpac.grisu.settings.ClientPropertiesManager;
 
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.ColumnSpec;

@@ -1,4 +1,20 @@
-package org.vpac.grisu.clients.blender;
+package grisu.frontend.blender;
+
+import grisu.control.ServiceInterface;
+import grisu.control.exceptions.BatchJobException;
+import grisu.control.exceptions.JobSubmissionException;
+import grisu.control.exceptions.NoSuchJobException;
+import grisu.control.exceptions.RemoteFileSystemException;
+import grisu.frontend.control.clientexceptions.JobCreationException;
+import grisu.frontend.control.jobMonitoring.RunningJobManager;
+import grisu.frontend.model.events.BatchJobEvent;
+import grisu.frontend.model.job.BatchJobObject;
+import grisu.frontend.model.job.JobObject;
+import grisu.jcommons.constants.Constants;
+import grisu.model.GrisuRegistry;
+import grisu.model.GrisuRegistryManager;
+import grisu.model.status.ActionStatusEvent;
+import grisu.settings.Environment;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,22 +30,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.EventTopicSubscriber;
-import org.vpac.grisu.control.ServiceInterface;
-import org.vpac.grisu.control.exceptions.BatchJobException;
-import org.vpac.grisu.control.exceptions.JobSubmissionException;
-import org.vpac.grisu.control.exceptions.NoSuchJobException;
-import org.vpac.grisu.control.exceptions.RemoteFileSystemException;
-import org.vpac.grisu.frontend.control.clientexceptions.JobCreationException;
-import org.vpac.grisu.frontend.control.jobMonitoring.RunningJobManager;
-import org.vpac.grisu.frontend.model.events.BatchJobEvent;
-import org.vpac.grisu.frontend.model.job.BatchJobObject;
-import org.vpac.grisu.frontend.model.job.JobObject;
-import org.vpac.grisu.model.GrisuRegistry;
-import org.vpac.grisu.model.GrisuRegistryManager;
-import org.vpac.grisu.model.status.ActionStatusEvent;
-import org.vpac.grisu.settings.Environment;
 
-import au.org.arcs.jcommons.constants.Constants;
 
 public class GrisuBlenderJob implements EventTopicSubscriber {
 

@@ -1,4 +1,11 @@
-package org.vpac.grisu.clients.blender.swing;
+package grisu.frontend.blender.swing;
+
+import grisu.control.ServiceInterface;
+import grisu.frontend.control.login.LoginManager;
+import grisu.frontend.model.events.ApplicationEventListener;
+import grisu.frontend.view.swing.GrisuMainPanel;
+import grisu.frontend.view.swing.WindowSaver;
+import grisu.frontend.view.swing.login.LoginPanel;
 
 import java.awt.AWTEvent;
 import java.awt.BorderLayout;
@@ -13,12 +20,6 @@ import javax.swing.JFrame;
 import javax.swing.UIManager;
 
 import org.jdesktop.swingx.JXFrame;
-import org.vpac.grisu.control.ServiceInterface;
-import org.vpac.grisu.frontend.control.login.LoginManager;
-import org.vpac.grisu.frontend.model.events.ApplicationEventListener;
-import org.vpac.grisu.frontend.view.swing.GrisuMainPanel;
-import org.vpac.grisu.frontend.view.swing.WindowSaver;
-import org.vpac.grisu.frontend.view.swing.login.LoginPanel;
 
 public class GrisuBlenderApp implements WindowListener {
 
@@ -71,7 +72,7 @@ public class GrisuBlenderApp implements WindowListener {
 
 	private void exit() {
 		try {
-			System.out.println("Exiting...");
+			// System.out.println("Exiting...");
 
 			if (si != null) {
 				si.logout();

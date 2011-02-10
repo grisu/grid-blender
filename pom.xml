@@ -1,23 +1,79 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<artifactId>grisu-clients</artifactId>
-		<groupId>org.vpac.grisu</groupId>
-		<version>0.3-beta4-SNAPSHOT</version>
-	</parent>
+
 	<artifactId>blender-client</artifactId>
+	<groupId>grisu.frontend</groupId>
+	<version>0.4-SNAPSHOT</version>
+
+	<properties>
+		<grisu.dependency.version>0.3.1</grisu.dependency.version>
+	</properties>
 
 	<repositories>
 		<repository>
-			<id>ARCS</id>
-			<url>http://code.arcs.org.au/nexus/content/groups/public</url>
+			<id>bestgrid.public.release</id>
+			<url>http://dev.ceres.auckland.ac.nz/nexus/content/groups/public/</url>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>daily</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>fail</checksumPolicy>
+			</snapshots>
 		</repository>
 		<repository>
-			<id>ARCS Snapshots</id>
-			<url>http://code.arcs.org.au/nexus/content/groups/public-snapshots
+			<id>bestgrid.public.snapshot</id>
+			<url>http://dev.ceres.auckland.ac.nz/nexus/content/groups/public-snapshots/
 			</url>
+			<releases>
+				<enabled>false</enabled>
+				<updatePolicy>never</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>always</updatePolicy>
+				<checksumPolicy>warn</checksumPolicy>
+			</snapshots>
 		</repository>
 	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>ARCS plugin</id>
+			<url>http://code.arcs.org.au/nexus/content/groups/public</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+		<pluginRepository>
+			<id>ARCS plugin Snapshots</id>
+			<url>http://code.arcs.org.au/nexus/content/groups/public-snapshots</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<distributionManagement>
+		<repository>
+			<name>BeSTGRID Releases Repository</name>
+			<id>bestgrid.release</id>
+			<url>http://dev.ceres.auckland.ac.nz/nexus/content/repositories/releases
+			</url>
+		</repository>
+		<snapshotRepository>
+			<id>bestgrid.snapshot</id>
+			<name>BeSTGRID Snapshots Repository</name>
+			<url>http://dev.ceres.auckland.ac.nz/nexus/content/repositories/snapshots
+			</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 
 	<dependencies>
@@ -34,7 +90,7 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.vpac.grisu</groupId>
+			<groupId>grisu.frontend</groupId>
 			<artifactId>grisu-client-swing</artifactId>
 			<version>${grisu.dependency.version}</version>
 			<type>jar</type>
@@ -42,7 +98,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.vpac.grisu</groupId>
+			<groupId>grisu.backend</groupId>
 			<artifactId>grisu-core</artifactId>
 			<version>${grisu.dependency.version}</version>
 			<type>jar</type>
@@ -57,12 +113,6 @@
 					<groupId>bouncycastle</groupId>
 				</exclusion>
 			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>au.org.arcs.auth</groupId>
-			<artifactId>arcs-gsi</artifactId>
-			<version>1.2</version>
-			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
@@ -100,6 +150,19 @@
 
 	<name>Grid blender client</name>
 	<description>A grid client to submit blender job using the grisu-client-swing library.</description>
+	<issueManagement>
+		<system>Github</system>
+		<url>https://github.com/grisu/grid-blender/issues</url>
+	</issueManagement>
+	<scm>
+		<connection>scm:git:git://github.com/grisu/grid-blender.git</connection>
+		<developerConnection>scm:git:git@github.com:grisu/grid-blender.git</developerConnection>
+		<url>https://github.com/grisu/grid-blender/tree/master</url>
+	</scm>
+	<organization>
+		<name>Grisu open source project</name>
+		<url>https://github.com/grisu</url>
+	</organization>
 	<build>
 
 		<plugins>
@@ -127,7 +190,7 @@
 
 								<index>true</index>
 								<manifest>
-									<mainClass>org.vpac.grisu.clients.blender.swing.GrisuBlenderApp
+									<mainClass>grisu.clients.blender.swing.GrisuBlenderApp
 									</mainClass>
 								</manifest>
 								<manifestEntries>
@@ -143,8 +206,52 @@
 					</execution>
 				</executions>
 			</plugin>
-
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<!-- <pushChanges>false</pushChanges> -->
+					<localCheckout>true</localCheckout>
+					<updateDependencies>true</updateDependencies>
+					<!-- <updateWorkingCopyVersions>false</updateWorkingCopyVersions> -->
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>sign</id>
+			<activation>
+				<property>
+					<name>BUILD_NUMBER</name>
+				</property>
+			</activation>
 
+			<build>
+				<plugins>
+
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jarsigner-plugin</artifactId>
+						<version>1.2</version>
+						<executions>
+							<execution>
+								<id>sign</id>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<alias>grisu</alias>
+							<storepass>FxAKs3p6</storepass>
+							<keypass>FxAKs3p6</keypass>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+
+		</profile>
+	</profiles>
 </project>

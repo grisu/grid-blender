@@ -1,4 +1,13 @@
-package org.vpac.grisu.clients.blender;
+package grisu.frontend.blender;
+
+import grisu.control.ServiceInterface;
+import grisu.frontend.control.login.LoginException;
+import grisu.frontend.control.login.LoginManager;
+import grisu.frontend.control.login.LoginParams;
+import grith.jgrith.CredentialHelpers;
+import grith.jgrith.myProxy.LocalMyProxy;
+import grith.jgrith.plainProxy.LocalProxy;
+import grith.jgrith.plainProxy.PlainProxy;
 
 import java.io.File;
 import java.io.IOException;
@@ -8,14 +17,6 @@ import jline.ConsoleReader;
 import org.apache.commons.lang.StringUtils;
 import org.globus.gsi.GlobusCredential;
 import org.globus.gsi.GlobusCredentialException;
-import org.vpac.grisu.control.ServiceInterface;
-import org.vpac.grisu.frontend.control.login.LoginException;
-import org.vpac.grisu.frontend.control.login.LoginManager;
-import org.vpac.grisu.frontend.control.login.LoginParams;
-import org.vpac.security.light.CredentialHelpers;
-import org.vpac.security.light.myProxy.LocalMyProxy;
-import org.vpac.security.light.plainProxy.LocalProxy;
-import org.vpac.security.light.plainProxy.PlainProxy;
 
 public class GridBlenderUtils {
 

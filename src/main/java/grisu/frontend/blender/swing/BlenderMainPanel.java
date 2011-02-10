@@ -1,4 +1,10 @@
-package org.vpac.grisu.clients.blender.swing;
+package grisu.frontend.blender.swing;
+
+import grisu.control.ServiceInterface;
+import grisu.frontend.view.swing.GrisuNavigationPanel;
+import grisu.frontend.view.swing.jobmonitoring.batch.BatchJobTabbedPane;
+import grisu.frontend.view.swing.login.GrisuSwingClient;
+import grisu.frontend.view.swing.login.LoginPanel;
 
 import java.awt.BorderLayout;
 
@@ -6,11 +12,6 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingConstants;
 
-import org.vpac.grisu.control.ServiceInterface;
-import org.vpac.grisu.frontend.view.swing.GrisuNavigationPanel;
-import org.vpac.grisu.frontend.view.swing.jobmonitoring.batch.BatchJobTabbedPane;
-import org.vpac.grisu.frontend.view.swing.login.GrisuSwingClient;
-import org.vpac.grisu.frontend.view.swing.login.LoginPanel;
 
 public class BlenderMainPanel extends JPanel implements GrisuSwingClient {
 	private JTabbedPane tabbedPane;
