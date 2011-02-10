@@ -10,6 +10,7 @@ import grisu.frontend.control.jobMonitoring.RunningJobManager;
 import grisu.frontend.model.events.BatchJobEvent;
 import grisu.frontend.model.job.BatchJobObject;
 import grisu.frontend.model.job.JobObject;
+import grisu.jcommons.constants.Constants;
 import grisu.model.GrisuRegistry;
 import grisu.model.GrisuRegistryManager;
 import grisu.model.status.ActionStatusEvent;
@@ -30,7 +31,6 @@ import org.apache.log4j.Logger;
 import org.bushe.swing.event.EventBus;
 import org.bushe.swing.event.EventTopicSubscriber;
 
-import au.org.arcs.jcommons.constants.Constants;
 
 public class GrisuBlenderJob implements EventTopicSubscriber {
 
