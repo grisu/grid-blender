@@ -6,7 +6,7 @@
 	<version>0.3.3-SNAPSHOT</version>
 
 	<properties>
-		<grisu.dependency.version>0.3.2</grisu.dependency.version>
+		<grisu.dependency.version>0.3.3</grisu.dependency.version>
 	</properties>
 
 	<repositories>
