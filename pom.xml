@@ -3,7 +3,7 @@
 
 	<artifactId>blender-client</artifactId>
 	<groupId>grisu.frontend</groupId>
-	<version>0.3.3.2-SNAPSHOT</version>
+	<version>0.3.3.1.1-SNAPSHOT</version>
 
 	<properties>
 		<grisu.dependency.version>0.3.3.1</grisu.dependency.version>
@@ -97,7 +97,7 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<dependency>
+<!--		<dependency>
 			<groupId>grisu.backend</groupId>
 			<artifactId>grisu-core</artifactId>
 			<version>${grisu.dependency.version}</version>
@@ -112,8 +112,12 @@
 					<artifactId>bcprov-jdk15</artifactId>
 					<groupId>bouncycastle</groupId>
 				</exclusion>
+				<exclusion>
+					<artifactId>ehcache</artifactId>
+					<groupId>net.sf.ehcache</groupId>
+				</exclusion>
 			</exclusions>
-		</dependency>
+		</dependency> -->
 
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
